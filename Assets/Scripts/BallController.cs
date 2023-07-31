@@ -12,9 +12,7 @@ public class BallController : MonoBehaviour
     void Start()
     {
         ballRb = GetComponent<Rigidbody2D>();
-
         ballMoveVectorControl();
-
     }
 
     void Update()
@@ -22,6 +20,32 @@ public class BallController : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerScoreWall"))
+        {
+            AIScoreUpdate();
+        }
+        else if (collision.CompareTag("AIScoreWall"))
+        {
+            PlayerScoreUpdate();
+        }
+    }
+
+    void AIScoreUpdate()
+    {
+        transform.position = new Vector2(0, 0);
+        ballMoveVectorControl();
+
+    }
+
+    void PlayerScoreUpdate()
+    {
+        transform.position = new Vector2(0, 0);
+        ballMoveVectorControl();
+    }
+
+    // Baþlangýç durumunda top'u rastgele bir yönde hareket ettirir.
     void ballMoveVectorControl()
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
