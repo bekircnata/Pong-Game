@@ -6,12 +6,19 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody2D ballRb;
     private Vector2 ballMoveVector;
+    private GameObject gameManagerObj;
+    private GameManager gameManagerScript;
 
     [SerializeField] private float speed = 5f;
 
     void Start()
     {
         ballRb = GetComponent<Rigidbody2D>();
+
+        //GameManager scriptine ulaþmak için Game Manager objesini bulur.
+        gameManagerObj = GameObject.Find("Game Manager");
+        gameManagerScript = gameManagerObj.GetComponent<GameManager>();
+
         ballMoveVectorControl();
     }
 
@@ -20,6 +27,7 @@ public class BallController : MonoBehaviour
         
     }
 
+    // Score duvarlarýndan birine temas edip etmediðinin tespiti.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PlayerScoreWall"))
@@ -32,17 +40,19 @@ public class BallController : MonoBehaviour
         }
     }
 
+    // AI Score'u alýr ise top'un pozisyonu sýfýrlanýp tekrardan random bir atýþla baþlar ve AI'ýn score puaný 1 arttýrýlýr.
     void AIScoreUpdate()
     {
         transform.position = new Vector2(0, 0);
         ballMoveVectorControl();
-
+        gameManagerScript.AIScore++;
     }
-
+    // Playere Score'u alýr ise top'un pozisyonu sýfýrlanýp tekrardan random bir atýþla baþlar ve Player'ýn score puaný 1 arttýrýlýr.
     void PlayerScoreUpdate()
     {
         transform.position = new Vector2(0, 0);
         ballMoveVectorControl();
+        gameManagerScript.playerScore++;
     }
 
     // Baþlangýç durumunda top'u rastgele bir yönde hareket ettirir.

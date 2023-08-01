@@ -10,13 +10,11 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
     [SerializeField] private float speed = 5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerControl();
@@ -24,8 +22,8 @@ public class PlayerController : MonoBehaviour
 
     void PlayerControl()
     {
-        verticalInput = Input.GetAxisRaw("Vertical"); // Inputtan giriþ verisi alýnýyor. (Aþaðý ok = -1, Yukarý Ok = 1)
-        playerMoveVector = new Vector2(0, verticalInput); // Player hareket edeceði vector belirleniyor.
-        playerRb.velocity = playerMoveVector * speed; // Player'ýn gideceði yön ve hýz çarpýlarak hareket saðlanýyor.
+        verticalInput = Input.GetAxisRaw("Vertical"); // Inputtan giriþ verisi alýnýr. (Aþaðý ok/S = -1, Yukarý Ok/W = 1)
+        playerMoveVector = new Vector2(0, verticalInput); // Player hareket edeceði vector belirlenir.
+        playerRb.velocity = playerMoveVector * speed; // Player'ýn gideceði yön ve hýz çarpýlarak hareket saðlanýr.
     }
 }

@@ -22,7 +22,7 @@ public class AIController : MonoBehaviour
 
     private void PlayerAIControl()
     {
-        // Topun konumuna göre playerAI'ýn aþaðý yönde mi yukarý yönde mi hareket edeceði belirleniyor.
+        // Topun konumuna göre playerAI'ýn aþaðý yönde mi yukarý yönde mi hareket edeceði belirler.
         if (ball.transform.position.y > transform.position.y + 0.5f)
         {
             playerAIMoveVector = new Vector2(0, 1);
