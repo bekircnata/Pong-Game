@@ -9,8 +9,6 @@ public class BallController : MonoBehaviour
     private GameObject gameManagerObj;
     private GameManager gameManagerScript;
 
-    [SerializeField] private float speed = 5f;
-
     void Start()
     {
         ballRb = GetComponent<Rigidbody2D>();
@@ -19,7 +17,7 @@ public class BallController : MonoBehaviour
         gameManagerObj = GameObject.Find("Game Manager");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
 
-        ballMoveVectorControl();
+        //ballMoveVectorControl();
     }
 
     void Update()
@@ -56,12 +54,12 @@ public class BallController : MonoBehaviour
     }
 
     // Baþlangýç durumunda top'u rastgele bir yönde hareket ettirir.
-    void ballMoveVectorControl()
+    public void ballMoveVectorControl()
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = Random.Range(0, 2) == 0 ? -1 : 1;
 
         ballMoveVector = new Vector2(x, y);
-        ballRb.velocity = ballMoveVector * speed;
+        ballRb.velocity = ballMoveVector * gameManagerScript.ballSpeed;
     }
 }

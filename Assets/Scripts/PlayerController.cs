@@ -6,24 +6,31 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D playerRb;
     private Vector2 playerMoveVector;
+    private GameObject gameManagerObj;
+    private GameManager gameManagerScript;
 
     private float verticalInput;
-    [SerializeField] private float speed = 5f;
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+
+        gameManagerObj = GameObject.Find("Game Manager");
+        gameManagerScript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
     {
-        PlayerControl();
+        if(gameManagerScript.isPlay)
+        {
+            PlayerControl();
+        }
     }
 
     void PlayerControl()
     {
         verticalInput = Input.GetAxisRaw("Vertical"); // Inputtan giriþ verisi alýnýr. (Aþaðý ok/S = -1, Yukarý Ok/W = 1)
         playerMoveVector = new Vector2(0, verticalInput); // Player hareket edeceði vector belirlenir.
-        playerRb.velocity = playerMoveVector * speed; // Player'ýn gideceði yön ve hýz çarpýlarak hareket saðlanýr.
+        playerRb.velocity = playerMoveVector * gameManagerScript.playerSpeed; // Player'ýn gideceði yön ve hýz çarpýlarak hareket saðlanýr.
     }
 }

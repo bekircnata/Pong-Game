@@ -7,12 +7,16 @@ public class AIController : MonoBehaviour
     private Rigidbody2D playerAIRb;
     [SerializeField] private GameObject ball;
     private Vector2 playerAIMoveVector;
+    private GameObject gameManagerObj;
+    private GameManager gameManagerScript;
 
-    [SerializeField] private float speed = 5f;
 
     void Start()
     {
         playerAIRb = GetComponent<Rigidbody2D>();
+
+        gameManagerObj = GameObject.Find("Game Manager");
+        gameManagerScript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
@@ -39,6 +43,6 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerAIRb.velocity = playerAIMoveVector * speed;
+        playerAIRb.velocity = playerAIMoveVector * gameManagerScript.playerAISpeed;
     }
 }
