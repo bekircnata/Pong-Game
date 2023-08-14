@@ -17,7 +17,6 @@ public class BallController : MonoBehaviour
         gameManagerObj = GameObject.Find("Game Manager");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
 
-        //ballMoveVectorControl();
     }
 
     void Update()
