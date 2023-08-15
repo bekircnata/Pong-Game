@@ -9,6 +9,9 @@ public class BallController : MonoBehaviour
     private GameObject gameManagerObj;
     private GameManager gameManagerScript;
 
+    [SerializeField] private AudioSource earnPointSound;
+    [SerializeField] private AudioSource losePointSound;
+
     void Start()
     {
         ballRb = GetComponent<Rigidbody2D>();
@@ -16,12 +19,13 @@ public class BallController : MonoBehaviour
         //GameManager scriptine ulaþmak için Game Manager objesini bulur.
         gameManagerObj = GameObject.Find("Game Manager");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
+        
 
     }
 
     void Update()
     {
-        
+        ballPositionReset();
     }
 
     // Score duvarlarýndan birine temas edip etmediðinin tespiti.
@@ -30,10 +34,12 @@ public class BallController : MonoBehaviour
         if (collision.CompareTag("PlayerScoreWall"))
         {
             AIScoreUpdate();
+            losePointSound.Play();
         }
         else if (collision.CompareTag("AIScoreWall"))
         {
             PlayerScoreUpdate();
+            earnPointSound.Play();
         }
     }
 
@@ -60,5 +66,14 @@ public class BallController : MonoBehaviour
 
         ballMoveVector = new Vector2(x, y);
         ballRb.velocity = ballMoveVector * gameManagerScript.ballSpeed;
+    }
+
+    // Oyun durdurulduðunda topun konumunu sýfýrlar.
+    void ballPositionReset()
+    {
+        if (!gameManagerScript.isPlay)
+        {
+            transform.position = new Vector2(0, 0);
+        }
     }
 }

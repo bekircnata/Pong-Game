@@ -30,36 +30,57 @@ public class GameManager : MonoBehaviour
         playerScoreText.text = playerScore.ToString();
         AIScoreText.text = AIScore.ToString();
 
-        if(isPlay)
-        {
-            easyButton.SetActive(false);
-            mediumButton.SetActive(false);
-            hardButton.SetActive(false);
-        }
+        MenuOff();
+        GameEnd();
     }
 
     public void EasyStartGame()
     {
-        isPlay = true;
         playerSpeed = 5;
         playerAISpeed = 5;
         ballSpeed = 6;
-        ballObj.GetComponent<BallController>().ballMoveVectorControl();
+        GameStart();
     }
     public void MediumStartGame()
     {
-        isPlay = true;
         playerSpeed = 8;
         playerAISpeed = 9;
         ballSpeed = 10;
-        ballObj.GetComponent<BallController>().ballMoveVectorControl();
+        GameStart();
     }
     public void HardStartGame()
     {
-        isPlay = true;
         playerSpeed = 10;
         playerAISpeed = 11;
         ballSpeed = 12;
+        GameStart();
+    }
+
+    // Oyun baþladýðýnda menüyü kaldýrýr.
+    void MenuOff()
+    {
+         easyButton.SetActive(!isPlay);
+         mediumButton.SetActive(!isPlay);
+         hardButton.SetActive(!isPlay);
+    }
+
+    void GameStart()
+    {
+        isPlay = true;
+        Time.timeScale = 1;
         ballObj.GetComponent<BallController>().ballMoveVectorControl();
     }
+
+    // ESC tuþu ile oyun bitirilir.
+    void GameEnd()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPlay = false;
+            playerScore = 0;
+            AIScore = 0;
+            Time.timeScale = 0;
+        }
+    }
+
 }

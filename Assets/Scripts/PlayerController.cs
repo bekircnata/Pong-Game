@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
 
+        //GameManager scriptine ulaþmak için Game Manager objesini bulur.
         gameManagerObj = GameObject.Find("Game Manager");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
     }

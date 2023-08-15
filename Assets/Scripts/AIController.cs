@@ -15,6 +15,7 @@ public class AIController : MonoBehaviour
     {
         playerAIRb = GetComponent<Rigidbody2D>();
 
+        //GameManager scriptine ulaþmak için Game Manager objesini bulur.
         gameManagerObj = GameObject.Find("Game Manager");
         gameManagerScript = gameManagerObj.GetComponent<GameManager>();
     }
@@ -24,9 +25,9 @@ public class AIController : MonoBehaviour
         PlayerAIControl();
     }
 
+    // Topun konumuna göre playerAI'ýn aþaðý yönde mi yukarý yönde mi hareket edeceði belirler.
     private void PlayerAIControl()
     {
-        // Topun konumuna göre playerAI'ýn aþaðý yönde mi yukarý yönde mi hareket edeceði belirler.
         if (ball.transform.position.y > transform.position.y + 0.5f)
         {
             playerAIMoveVector = new Vector2(0, 1);
