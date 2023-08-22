@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 113449870}
   - component: {fileID: 113449869}
   - component: {fileID: 113449871}
+  - component: {fileID: 113449872}
   m_Layer: 0
   m_Name: Wall
   m_TagString: PlayerScoreWall
@@ -334,7 +335,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -407,6 +408,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &113449872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113449868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999869e415c543f4aa387741575b9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
+  colors:
+  - {r: 0.5647059, g: 0.047058824, b: 0.24705882, a: 1}
+  - {r: 0.78039217, g: 0, b: 0.22352941, a: 1}
+  - {r: 0.9764706, g: 0.29803923, b: 0.0627451, a: 1}
+  - {r: 0.972549, g: 0.87058824, b: 0.13333334, a: 1}
+  time: 0
 --- !u!1 &262079936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1350,7 @@ GameObject:
   - component: {fileID: 804561524}
   - component: {fileID: 804561523}
   - component: {fileID: 804561525}
+  - component: {fileID: 804561526}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -1357,7 +1378,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1387,7 +1408,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!4 &804561524
 Transform:
@@ -1430,6 +1451,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &804561526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804561522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999869e415c543f4aa387741575b9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
+  colors:
+  - {r: 0.5647059, g: 0.047058824, b: 0.24705882, a: 1}
+  - {r: 0.78039217, g: 0, b: 0.22352941, a: 1}
+  - {r: 0.9764706, g: 0.29803923, b: 0.0627451, a: 1}
+  - {r: 0.972549, g: 0.87058824, b: 0.13333334, a: 1}
+  time: 1
 --- !u!1 &910038805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2162,7 @@ GameObject:
   - component: {fileID: 1462033688}
   - component: {fileID: 1462033687}
   - component: {fileID: 1462033689}
+  - component: {fileID: 1462033690}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -2149,7 +2190,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2222,6 +2263,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1462033690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462033686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999869e415c543f4aa387741575b9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
+  colors:
+  - {r: 0.5647059, g: 0.047058824, b: 0.24705882, a: 1}
+  - {r: 0.78039217, g: 0, b: 0.22352941, a: 1}
+  - {r: 0.9764706, g: 0.29803923, b: 0.0627451, a: 1}
+  - {r: 0.972549, g: 0.87058824, b: 0.13333334, a: 1}
+  time: 0
 --- !u!1 &1536564120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,6 +2618,7 @@ GameObject:
   - component: {fileID: 1972318915}
   - component: {fileID: 1972318914}
   - component: {fileID: 1972318916}
+  - component: {fileID: 1972318917}
   m_Layer: 0
   m_Name: Wall
   m_TagString: AIScoreWall
@@ -2585,7 +2646,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2658,3 +2719,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1972318917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972318913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999869e415c543f4aa387741575b9533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 418beb13081b30a41bab2bb2658514f3, type: 2}
+  colors:
+  - {r: 0.5647059, g: 0.047058824, b: 0.24705882, a: 1}
+  - {r: 0.78039217, g: 0, b: 0.22352941, a: 1}
+  - {r: 0.9764706, g: 0.29803923, b: 0.0627451, a: 1}
+  - {r: 0.972549, g: 0.87058824, b: 0.13333334, a: 1}
+  time: 0
