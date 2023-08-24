@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject easyButton;
     [SerializeField] private GameObject mediumButton;
     [SerializeField] private GameObject hardButton;
+    [SerializeField] private GameObject menuMainText;
+    [SerializeField] private AudioSource backgroundMusic;
 
     public int playerScore = 0;
     public int AIScore = 0;
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 
         MenuOff();
         GameEnd();
+        BackgroundMusicControl();
     }
 
     public void EasyStartGame()
@@ -62,6 +65,22 @@ public class GameManager : MonoBehaviour
          easyButton.SetActive(!isPlay);
          mediumButton.SetActive(!isPlay);
          hardButton.SetActive(!isPlay);
+         menuMainText.SetActive(!isPlay);
+    }
+
+    void BackgroundMusicControl()
+    {
+        if (isPlay)
+        {
+            if(!backgroundMusic.isPlaying)
+            {
+                backgroundMusic.Play();
+            }
+        }
+        else
+        {
+            backgroundMusic.Pause();
+        }
     }
 
     void GameStart()
