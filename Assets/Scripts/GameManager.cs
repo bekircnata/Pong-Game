@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI AIScoreText;
+    [SerializeField] private GameObject GameIsStoppedText;
     [SerializeField]  private GameObject ballObj;
     [SerializeField] private GameObject easyButton;
     [SerializeField] private GameObject mediumButton;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int playerSpeed;
     public int playerAISpeed;
     public int ballSpeed;
+    private bool isStop = false;
 
     void Start()
     {
@@ -35,6 +37,11 @@ public class GameManager : MonoBehaviour
         MenuOff();
         GameEnd();
         BackgroundMusicControl();
+
+        if(isPlay)
+        {
+            GameStop();
+        }
     }
 
     public void EasyStartGame()
@@ -93,13 +100,30 @@ public class GameManager : MonoBehaviour
     // ESC tuþu ile oyun bitirilir.
     void GameEnd()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             isPlay = false;
             playerScore = 0;
             AIScore = 0;
+            GameIsStoppedText.SetActive(false);
             Time.timeScale = 0;
         }
     }
 
+    void GameStop()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            isStop = !isStop;
+            if(isStop)
+            {
+                Time.timeScale = 0;
+                GameIsStoppedText.SetActive(true);
+            }else
+            {
+                Time.timeScale = 1;
+                GameIsStoppedText.SetActive(false);
+            }
+        }
+    }
 }
